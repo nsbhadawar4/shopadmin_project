@@ -242,20 +242,6 @@ export default function AdminSettings() {
             <span className="text-xs font-medium text-zinc-400 group-hover:text-red-400 transition-colors">Logout</span>
           </button>
         </motion.div>
-
-        {/* ── Footer note ── */}
-        <motion.div
-          variants={fadeUp}
-          custom={6}
-          initial="hidden"
-          animate="visible"
-          className="flex items-center justify-center gap-1.5 py-2"
-        >
-          <Mail className="w-3 h-3 text-zinc-600" />
-          <p className="text-[11px] text-zinc-600">
-            ShopAdmin · Built with Next.js &amp; Tailwind CSS
-          </p>
-        </motion.div>
       </div>
     </div>
   );
