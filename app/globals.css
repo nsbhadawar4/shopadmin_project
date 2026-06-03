@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* ─── Base CSS vars ─── */
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+}
+
+/* ─── Light theme ───────────────────────────────────────────────────────────
+   html[data-theme="light"] has specificity (0,1,1) — higher than :root (0,1,0)
+   inside Tailwind's @supports block. So these var overrides WIN and all
+   Tailwind utilities that use var(--color-zinc-*) automatically flip.       */
+html[data-theme="light"] {
+  --background:       #ffffff;
+  --foreground:       #09090b;
+
+  /* Inverted zinc scale — bg uses 950→50, text uses 50→950 */
+  --color-zinc-50:   #09090b;
+  --color-zinc-100:  #18181b;
+  --color-zinc-200:  #27272a;
+  --color-zinc-300:  #3f3f46;
+  --color-zinc-400:  #71717a;
+  --color-zinc-500:  #a1a1aa;
+  --color-zinc-600:  #d4d4d8;
+  --color-zinc-700:  #e4e4e7;
+  --color-zinc-800:  #f4f4f5;
+  --color-zinc-900:  #f8fafc;
+  --color-zinc-950:  #ffffff;
+}
+
+/* ─── Tailwind theme ─── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans, system-ui, -apple-system, sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ─── Premium scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+/* ─── Smooth scroll ─── */
+html { scroll-behavior: smooth; }
